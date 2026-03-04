@@ -1,0 +1,32 @@
+package academy.devdojo.maratonajava.javacore.Kenum.dominio;
+
+public enum TipoCliente { // todos os atributos são contantes
+    //deve ser usado quando se tem opção de constantes assim evitando erros na seleção
+    PESSOA_FISICA(1, "Pessoa fisica"),
+    PESSOA_JURIDICA(2, "Pessoa juridica");
+
+    private int valor;
+    private String nomeRelatorio;
+
+    TipoCliente(int valor, String nomeRelatorio) {
+        this.valor = valor;
+        this.nomeRelatorio = nomeRelatorio;
+    }
+
+    public static TipoCliente tipoClientePorNomeRelatorio(String nomeRelatorio){
+        for (TipoCliente tipoCliente : values()) {
+            if (tipoCliente.getNomeRelatorio().equals(nomeRelatorio)){
+                return tipoCliente;
+            }
+        }
+        return null;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public String getNomeRelatorio() {
+        return nomeRelatorio;
+    }
+}
